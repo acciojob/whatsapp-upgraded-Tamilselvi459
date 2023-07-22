@@ -58,8 +58,8 @@ public class Message {
 
     private Date timestamp;
 
-    public Message(int id, String content, Date timestamp) {
-        this.id = id;
+    public Message( String content, Date timestamp) {
+      //  this.id = id;
         this.content = content;
         this.timestamp = timestamp;
     }
