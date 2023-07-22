@@ -12,6 +12,15 @@ public class User {
 
     private String name;
 
+    public User() {
+    }
+
+    public User( String name, String mobile) {
+     //   this.id = id;
+        this.name = name;
+        this.mobile = mobile;
+    }
+
     public String getName() {
         return name;
     }

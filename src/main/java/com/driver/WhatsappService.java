@@ -1,6 +1,7 @@
 package com.driver;
 
 import com.driver.Exception.UserAlreadyExists;
+import com.driver.Repository.GroupRepository;
 import com.driver.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -18,7 +19,9 @@ import java.util.function.Function;
 public class WhatsappService {
 
 @Autowired UserRepository userRepository;
-
+@Autowired
+    GroupRepository groupRepository;
+        int groupcount;
 
     public String createUser(String name, String mobile) {
 
@@ -32,5 +35,32 @@ public class WhatsappService {
 
         userRepository.save(user1);
         return "User registered successfully";
+    }
+
+    public Group createGroup(List<User> users) {
+
+        Group sgroup = null;
+        if(users.size()==2){
+            Group group = new Group();
+            group.setName(users.get(1).getName());
+            group.setNumberOfParticipants(2);
+           Group savedgroup =  groupRepository.save(group);
+           List<User> list = savedgroup.getUserList();
+
+          for(User user : list) user.setGroup(savedgroup);
+           return savedgroup;
+        }
+        else if(users.size()>2){
+             groupcount++;
+            Group group = new Group();
+            group.setName("Group" + groupcount);
+            group.setNumberOfParticipants(users.size());
+             Group savedgroup = groupRepository.save(group);
+            List<User> list = savedgroup.getUserList();
+
+            for(User user : list) user.setGroup(savedgroup);
+             return savedgroup;
+        }
+        return sgroup;
     }
 }
