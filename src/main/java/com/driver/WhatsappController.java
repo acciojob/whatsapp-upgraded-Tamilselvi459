@@ -26,12 +26,13 @@ public class WhatsappController {
     public String createUser(@RequestParam  String name, @RequestParam  String mobile) throws Exception {
         //If the mobile number exists in database, throw "User already exists" exception
         //Otherwise, create the user and return "SUCCESS"
-     try{
-             String ans = whatsappService.createUser(name, mobile);
-              return ans;
-        }catch(Exception e){
-          return e.getMessage();
-       }
+//     try{
+//             String ans = whatsappService.createUser(name, mobile);
+//              return ans;
+//        }catch(Exception e){
+//          return e.getMessage();
+//       }
+        return "ee";
 
     }
 

@@ -23,19 +23,19 @@ public class WhatsappService {
     GroupRepository groupRepository;
         int groupcount;
 
-    public String createUser(String name, String mobile) {
-
-        User user = userRepository.findByMobile(mobile);
-        if(user!=null){
-            throw new UserAlreadyExists("User already exists");
-        }
-        User user1 = new User();
-        user1.setMobile(mobile);
-        user1.setName(name);
-
-        userRepository.save(user1);
-        return "User registered successfully";
-    }
+//    public String createUser(String name, String mobile) {
+//
+//        User user = userRepository.findByMobile(mobile);
+//        if(user!=null){
+//            throw new UserAlreadyExists("User already exists");
+//        }
+//        User user1 = new User();
+//        user1.setMobile(mobile);
+//        user1.setName(name);
+//
+//        userRepository.save(user1);
+//        return "User registered successfully";
+//    }
 
 //    public Group createGroup(List<User> users) {
 //
