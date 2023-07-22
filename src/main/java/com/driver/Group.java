@@ -7,8 +7,8 @@ import java.util.List;
 @Entity
 @Table(name = "group_table")
 public class Group {
-    public Group(int id, String name, int numberOfParticipants) {
-        this.id = id;
+    public Group( String name, int numberOfParticipants) {
+    //    this.id = id;
         this.name = name;
         this.numberOfParticipants = numberOfParticipants;
     }
@@ -23,10 +23,7 @@ public class Group {
     private int numberOfParticipants;
 
 
-    public Group(String name, int numberOfParticipants) {
-        this.name = name;
-        this.numberOfParticipants = numberOfParticipants;
-    }
+
 
 
     public int getId() {

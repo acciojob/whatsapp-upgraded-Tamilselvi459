@@ -53,7 +53,7 @@ public class WhatsappService {
         else if(users.size()>2){
              groupcount++;
             Group group = new Group();
-            group.setName("Group" + groupcount);
+            group.setName("Group" + " " + String.valueOf(groupcount));
             group.setNumberOfParticipants(users.size());
              Group savedgroup = groupRepository.save(group);
             List<User> list = savedgroup.getUserList();
