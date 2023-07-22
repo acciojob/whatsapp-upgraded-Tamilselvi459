@@ -37,30 +37,30 @@ public class WhatsappService {
         return "User registered successfully";
     }
 
-    public Group createGroup(List<User> users) {
-
-        Group sgroup = null;
-        if(users.size()==2){
-            Group group = new Group();
-            group.setName(users.get(1).getName());
-            group.setNumberOfParticipants(2);
-           Group savedgroup =  groupRepository.save(group);
-           List<User> list = savedgroup.getUserList();
-
-          for(User user : list) user.setGroup(savedgroup);
-           return savedgroup;
-        }
-        else if(users.size()>2){
-             groupcount++;
-            Group group = new Group();
-            group.setName("Group" + " " + String.valueOf(groupcount));
-            group.setNumberOfParticipants(users.size());
-             Group savedgroup = groupRepository.save(group);
-            List<User> list = savedgroup.getUserList();
-
-            for(User user : list) user.setGroup(savedgroup);
-             return savedgroup;
-        }
-        return sgroup;
-    }
+//    public Group createGroup(List<User> users) {
+//
+//        Group sgroup = null;
+//        if(users.size()==2){
+//            Group group = new Group();
+//            group.setName(users.get(1).getName());
+//            group.setNumberOfParticipants(2);
+//           Group savedgroup =  groupRepository.save(group);
+//           List<User> list = savedgroup.getUserList();
+//
+//          for(User user : list) user.setGroup(savedgroup);
+//           return savedgroup;
+//        }
+//        else if(users.size()>2){
+//             groupcount++;
+//            Group group = new Group();
+//            group.setName("Group" + " " + String.valueOf(groupcount));
+//            group.setNumberOfParticipants(users.size());
+//             Group savedgroup = groupRepository.save(group);
+//            List<User> list = savedgroup.getUserList();
+//
+//            for(User user : list) user.setGroup(savedgroup);
+//             return savedgroup;
+//        }
+//        return sgroup;
+//    }
 }
